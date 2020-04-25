@@ -40,7 +40,7 @@
     <plugin name="cordova-plugin-statusbar" spec="2.4.3" />
     <plugin name="cordova-plugin-admobpro">
         <variable name="PLAY_SERVICES_VERSION" value="16.0.0" />
-        <variable name="ADMOB_APP_ID" value="ca-app-pub-8716485588609849~3166082726" />
+        <variable name="ADMOB_APP_ID" value="ca-app-pub-8716485588609849~1319077374" />
     </plugin>
     <plugin name="cordova-plugin-vibration" spec="~2.1.5" />
     <plugin name="cordova-plugin-battery-status" spec="2.0.3" />
