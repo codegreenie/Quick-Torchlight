@@ -217,6 +217,9 @@ $$(document).on('page:init', '.page[data-name="main"]', function (e){
 
   }
 
+  window.localStorage.setItem("torch_status", "on");
+
+  
     $$("#torch-switch").click(function(){
 
       var checkTorchStatus = window.localStorage.getItem("torch_status");
