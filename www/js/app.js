@@ -117,8 +117,7 @@ window.plugins.socialsharing.shareWithOptions(options, onSuccess, onError);
 
                 var admobid = {};
                 admobid = {
-                  banner: 'ca-app-pub-8716485588609849/1279938259',
-                  interstitial: 'ca-app-pub-8716485588609849/2663859039'
+                  banner: 'ca-app-pub-8716485588609849/9512621535'
                 };
 
 
@@ -143,7 +142,7 @@ window.plugins.socialsharing.shareWithOptions(options, onSuccess, onError);
                       console.log("oops! Banner didn't load. retrying");
                       window.setTimeout(function(){
                         showBottomBannerAd();
-                      }, 2000);
+                      }, 1500);
                     }
                   });
               }
@@ -154,7 +153,7 @@ window.plugins.socialsharing.shareWithOptions(options, onSuccess, onError);
 
               setTimeout(function(){
                   showBottomBannerAd();
-              }, 3000);
+              }, 2000);
 
 
   
