@@ -143,7 +143,7 @@ window.plugins.socialsharing.shareWithOptions(options, onSuccess, onError);
                       console.log("oops! Banner didn't load. retrying");
                       window.setTimeout(function(){
                         showBottomBannerAd();
-                      }, 1500);
+                      }, 2000);
                     }
                   });
               }
@@ -154,7 +154,7 @@ window.plugins.socialsharing.shareWithOptions(options, onSuccess, onError);
 
               setTimeout(function(){
                   showBottomBannerAd();
-              }, 1000);
+              }, 3000);
 
 
   
@@ -232,7 +232,7 @@ $$(document).on('page:init', '.page[data-name="main"]', function (e){
         // turn OFF torch light here
         window.localStorage.setItem("torch_status", "off");
         vibratePhone(50);
-        toastMe("Torch is OFF...");
+        toastMe("Torchlight is OFF...");
         
       }
       else{
@@ -252,7 +252,7 @@ $$(document).on('page:init', '.page[data-name="main"]', function (e){
         // turn ON torch light here
         window.localStorage.setItem("torch_status", "on");
         vibratePhone(50);
-        toastMe("Torch is ON...");
+        toastMe("Torchlight is ON...");
       }
       
     });
