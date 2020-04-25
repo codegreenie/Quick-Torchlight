@@ -135,7 +135,7 @@ window.plugins.socialsharing.shareWithOptions(options, onSuccess, onError);
                     adId:admobid.banner,  
                     position:AdMob.AD_POSITION.BOTTOM_CENTER,
                     overlap: true,
-                    autoShow: false,
+                    autoShow: true,
                     success : function(){
                       console.log("Yay! Banner ad is active");
                     },
