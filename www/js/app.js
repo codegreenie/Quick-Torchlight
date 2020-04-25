@@ -223,16 +223,7 @@ $$(document).on('page:init', '.page[data-name="main"]', function (e){
       
       if (checkTorchStatus == "on") {
 
-         // switch toggle
-    window.plugins.flashlight.toggle(
-      function() {
-        console.log("Torchlight successful")
-      }, // optional success callback
-      function() {
-       toastMe("Unable to turn OFF Torchlight");
-      }, // optional error callback
-      {intensity: 1} // optional as well
-    );
+     window.plugins.flashlight.switchOff();
 
         $$("#torch-icon").prop("src", "imgs/torch_off.png");
         // turn OFF torch light here
@@ -243,7 +234,7 @@ $$(document).on('page:init', '.page[data-name="main"]', function (e){
       }
       else{
 
-        window.plugins.flashlight.toggle(
+        window.plugins.flashlight.switchOn(
       function() {
         console.log("Torchlight successful")
       }, // optional success callback
