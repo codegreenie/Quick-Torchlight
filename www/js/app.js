@@ -68,6 +68,7 @@ function deviceIsReady(){
         if( /(android)/i.test(navigator.userAgent) ) { // for android & amazon-fireos
           
           shareMessage = "Torchlight Pro - Ad-free, Super clean & Lightweight Torchlight for your phone. Download from Google Play Store";
+          shareUrl = "https://play.google.com/store/apps/details?id=com.codegreenie.torchlightpro";
 
         } else{ // for ios
             
