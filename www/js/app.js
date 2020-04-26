@@ -1,12 +1,12 @@
-var shareApp, changeStatusBarColor, showBottomBannerAd, vibratePhone, checkBatteryLevel;
+var shareApp, changeStatusBarColor, vibratePhone, checkBatteryLevel;
 // Dom7
 var $$ = Dom7;
 
 
 // Init App
 var app = new Framework7({
-  name : 'Torchlight Free!',
-  id: 'com.codegreenie.torchlightfree',
+  name : 'Torchlight Pro',
+  id: 'com.codegreenie.torchlightpro',
   root: '#app',
   theme: 'auto',
   language: 'en',
@@ -53,9 +53,6 @@ function deviceIsReady(){
         $$("#battery-percent").text(parseInt(status.level));
     }
 
-  
-
-  
 
   StatusBar.styleLightContent();
   StatusBar.backgroundColorByHexString("#04081d");
@@ -67,15 +64,29 @@ function deviceIsReady(){
 
 
 
+    var shareMessage, shareUrl;
+        if( /(android)/i.test(navigator.userAgent) ) { // for android & amazon-fireos
+          
+          shareMessage = "Torchlight Pro - Ad-free, Super clean & Lightweight Torchlight for your phone. Download from Google Play Store";
+
+        } else{ // for ios
+            
+            shareMessage = "Torchlight Pro - Ad-free, Super clean & Lightweight Torchlight for your phone. Download from App Store";
+            shareUrl = "https://play.google.com/store/apps/details?id=com.codegreenie.torchlightpro";
+
+        }
+
+
+
 shareApp = function(){
 
 // this is the complete list of currently supported params you can pass to the plugin (all optional)
 var options = {
 
-  message: 'Torchlight Free! - Best Torchlight app for your phone! Download Torchlight Free App on Google Play Store', 
-  subject: 'Torchlight Free!', // fi. for email
+  message: shareMessage, 
+  subject: 'Torchlight Pro', // fi. for email
   files: [], // an array of filenames either locally or remotely
-  url: 'https://play.google.com/store/apps/details?id=com.codegreenie.torchlightfree',
+  url: shareUrl,
   chooserTitle: 'Share via'
 };
 
@@ -96,8 +107,8 @@ window.plugins.socialsharing.shareWithOptions(options, onSuccess, onError);
 
 
 
-    // switch toggle
-    window.plugins.flashlight.toggle(
+    // switch on immediately
+    window.plugins.flashlight.switchOn(
       function() {
         console.log("Torchlight successful")
       }, // optional success callback
@@ -110,50 +121,6 @@ window.plugins.socialsharing.shareWithOptions(options, onSuccess, onError);
 
 
 
-
-
-
-                //Google Admob Monetization here :)
-
-                var admobid = {};
-                admobid = {
-                  banner: 'ca-app-pub-8716485588609849/9512621535'
-                };
-
-
-            
-
-
-
-
-            
-
-
-              showBottomBannerAd = function(){
-                    if(window.AdMob) AdMob.createBanner({
-                    adId:admobid.banner,  
-                    position:AdMob.AD_POSITION.BOTTOM_CENTER,
-                    overlap: true,
-                    autoShow: true,
-                    success : function(){
-                      console.log("Yay! Banner ad is active");
-                    },
-                    error : function(){
-                      console.log("oops! Banner didn't load. retrying");
-                      window.setTimeout(function(){
-                        showBottomBannerAd();
-                      }, 1500);
-                    }
-                  });
-              }
-
-
-              
-             
-
-              setTimeout(function(){
-                  showBottomBannerAd();
-              }, 2000);
 
 
   
@@ -175,18 +142,6 @@ window.plugins.socialsharing.shareWithOptions(options, onSuccess, onError);
 }
 
 
-
-
-$$(document).on('page:init', function(e){
-  var pageName = e.detail.name;
-});
-
-
-
-$$(document).on('page:beforeout', function (e) {
-  // hide before exiting to keep it clean
-  AdMob.hideBanner();
-});
 
 
 
@@ -264,7 +219,7 @@ $$(document).on('page:init', '.page[data-name="main"]', function (e){
 
 
       $$("#about-app").click(function(){
-        app.dialog.alert("Created by <b>Abdulazeez Khalid</b> &amp; <b>Turawa Amzat</b> <br><br> <a href='https://facebook.com/itzyhongkashy.horlarmheylheykan' class=external>Khalid - Facebook</a> <br> <a href='https://twitter.com/codegreenie' class=external>Amzat - Twitter</a>");
+        app.dialog.alert("Created by <b>Turawa Amzat</b> &amp; <b>Abdulazeez Khalid</b>  <br><br> <a href='https://twitter.com/codegreenie' class=external>Amzat - Twitter</a> <br> <a href='https://facebook.com/itzyhongkashy.horlarmheylheykan' class=external>Khalid - Facebook</a>");
       })
 
 
