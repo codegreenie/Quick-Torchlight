@@ -6,7 +6,7 @@ var $$ = Dom7;
 // Init App
 var app = new Framework7({
   name : 'Torchlight Pro',
-  id: 'com.codegreenie.torchlightpro',
+  id: 'com.codegreenie.torchlightfree',
   root: '#app',
   theme: 'auto',
   language: 'en',
@@ -68,12 +68,12 @@ function deviceIsReady(){
         if( /(android)/i.test(navigator.userAgent) ) { // for android & amazon-fireos
           
           shareMessage = "Torchlight Pro - Ad-free, Super clean & Lightweight Torchlight for your phone. Download from Google Play Store";
-          shareUrl = "https://play.google.com/store/apps/details?id=com.codegreenie.torchlightpro";
+          shareUrl = "https://play.google.com/store/apps/details?id=com.codegreenie.torchlightfree";
 
         } else{ // for ios
             
             shareMessage = "Torchlight Pro - Ad-free, Super clean & Lightweight Torchlight for your phone. Download from App Store";
-            shareUrl = "https://play.google.com/store/apps/details?id=com.codegreenie.torchlightpro";
+            shareUrl = "https://play.google.com/store/apps/details?id=com.codegreenie.torchlightfree";
 
         }
 
