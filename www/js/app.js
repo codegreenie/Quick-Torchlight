@@ -60,7 +60,7 @@ function deviceIsReady(){
                     adId:admobid.banner,  
                     position:AdMob.AD_POSITION.BOTTOM_CENTER,
                     overlap: true,
-                    autoShow: false,
+                    autoShow: true,
                     isTesting : true,
                     success : function(){
                       console.log("Yay! Banner ad is active");
