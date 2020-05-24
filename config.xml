@@ -1,8 +1,8 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="com.codegreenie.torchlightfree" version="1.2.5" xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0">
-    <name>Torchlight Pro</name>
+<widget id="com.codegreenie.torchlightfree" version="1.2.8" xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0">
+    <name>Torchlight Free</name>
     <description>
-        An Ad-free torchlight app for your phone
+       Free torchlight app for your phone
     </description>
     <author email="codegreenie@gmail.com" href="https://twitter.com/codegreenie">
         @codegreenie
@@ -41,4 +41,8 @@
     <plugin name="cordova-plugin-vibration" spec="~2.1.5" />
     <plugin name="cordova-plugin-battery-status" spec="2.0.3" />
     <plugin name="cordova-plugin-flashlight" spec="3.2.0" />
+    <plugin name="cordova-plugin-admobpro">
+        <variable name="PLAY_SERVICES_VERSION" value="16.0.0" />
+        <variable name="ADMOB_APP_ID" value="ca-app-pub-8716485588609849~1319077374" />
+    </plugin>
 </widget>
