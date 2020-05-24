@@ -61,7 +61,7 @@ function deviceIsReady(){
                     position:AdMob.AD_POSITION.BOTTOM_CENTER,
                     overlap: true,
                     autoShow: true,
-                    isTesting : true,
+                    isTesting : false,
                     success : function(){
                       console.log("Yay! Banner ad is active");
                     },
@@ -79,7 +79,7 @@ function deviceIsReady(){
 
               setTimeout(function(){
                   showBottomBannerAd();
-              }, 1500);
+              }, 2000);
 
 
   
