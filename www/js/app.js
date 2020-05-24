@@ -1,11 +1,11 @@
-var shareApp, changeStatusBarColor, vibratePhone, checkBatteryLevel;
+var shareApp, changeStatusBarColor, vibratePhone, checkBatteryLevel, showBottomBannerAd;
 // Dom7
 var $$ = Dom7;
 
 
 // Init App
 var app = new Framework7({
-  name : 'Torchlight Pro',
+  name : 'Torchlight Free',
   id: 'com.codegreenie.torchlightfree',
   root: '#app',
   theme: 'auto',
@@ -44,6 +44,44 @@ document.addEventListener("deviceready", deviceIsReady, false);
 function deviceIsReady(){
 
 
+
+
+
+                //Google Admob Monetization here :)
+
+                var admobid = {};
+                admobid = {
+                  banner: 'ca-app-pub-8716485588609849/5271612286'
+                };
+
+
+                showBottomBannerAd = function(){
+                    if(window.AdMob) AdMob.createBanner({
+                    adId:admobid.banner,  
+                    position:AdMob.AD_POSITION.BOTTOM_CENTER,
+                    overlap: true,
+                    autoShow: false,
+                    isTesting : true,
+                    success : function(){
+                      console.log("Yay! Banner ad is active");
+                    },
+                    error : function(){
+                      console.log("oops! Banner didn't load. retrying");
+                      window.setTimeout(function(){
+                        showBottomBannerAd();
+                      }, 1000);
+                    }
+                  });
+              }
+
+
+
+
+              setTimeout(function(){
+                  showBottomBannerAd();
+              }, 1500);
+
+
   
     window.addEventListener("batterystatus", onBatteryStatus, false);
   
@@ -67,12 +105,12 @@ function deviceIsReady(){
     var shareMessage, shareUrl;
         if( /(android)/i.test(navigator.userAgent) ) { // for android & amazon-fireos
           
-          shareMessage = "Torchlight Pro - Ad-free, Super clean & Lightweight Torchlight for your phone. Download from Google Play Store";
+          shareMessage = "Torchlight Free, Super clean & Lightweight Torchlight for your phone. Download from Google Play Store";
           shareUrl = "https://play.google.com/store/apps/details?id=com.codegreenie.torchlightfree";
 
         } else{ // for ios
             
-            shareMessage = "Torchlight Pro - Ad-free, Super clean & Lightweight Torchlight for your phone. Download from App Store";
+            shareMessage = "Torchlight Free, Super clean & Lightweight Torchlight for your phone. Download from App Store";
             shareUrl = "https://play.google.com/store/apps/details?id=com.codegreenie.torchlightfree";
 
         }
@@ -85,7 +123,7 @@ shareApp = function(){
 var options = {
 
   message: shareMessage, 
-  subject: 'Torchlight Pro', // fi. for email
+  subject: 'Torchlight Free', // fi. for email
   files: [], // an array of filenames either locally or remotely
   url: shareUrl,
   chooserTitle: 'Share via'
