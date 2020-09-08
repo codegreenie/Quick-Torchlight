@@ -89,7 +89,24 @@ function deviceIsReady(){
 
     function onBatteryStatus(status) {
         $$("#battery-percent").text(parseInt(status.level));
+        if (status.isPlugged == true) {
+          $$("#is-charging").text("Charging...");
+        }
+        else{
+          $$("#is-charging").text("");
+        }
+        
     }
+
+
+
+    window.addEventListener("batterylow", onBatteryLow, false);
+
+      function onBatteryLow(status) {
+          app.dialog.alert("Battery Low! <br> Please charge your device.");
+      }
+
+ 
 
 
   StatusBar.styleLightContent();
@@ -258,7 +275,7 @@ $$(document).on('page:init', '.page[data-name="main"]', function (e){
 
 
       $$("#about-app").click(function(){
-        app.dialog.alert("Created by <b>Turawa Amzat</b> &amp; <b>Abdulazeez Khalid</b>  <br><br> <a href='https://twitter.com/codegreenie' class=external>Amzat - Twitter</a> <br> <a href='https://facebook.com/itzyhongkashy.horlarmheylheykan' class=external>Khalid - Facebook</a>");
+        app.dialog.alert("Made by <b>Codegreenie Systems</b> <br><br>More apps by <a href='https://play.google.com/store/apps/dev?id=8403908509363603689' class=external>Codegreenie Systems</a><br>Twitter <a href='https://twitter.com/codegreenie' class=external>@codegreenie</a>");
       })
 
 
