@@ -294,7 +294,7 @@ $$(document).on('page:init', '.page[data-name="main"]', function (e){
 
 
       $$("#about-app").click(function(){
-        app.dialog.alert("v1.3.2 - <b>Codegreenie Systems</b> <br><br>More apps by <a href='https://play.google.com/store/apps/dev?id=8403908509363603689' class=external>Codegreenie Systems</a><br>Twitter <a href='https://twitter.com/codegreenie' class=external>@codegreenie</a>");
+        app.dialog.alert("v1.3.5 - by <b>Codegreenie</b> <br><br>More apps by <a href='https://play.google.com/store/apps/dev?id=8403908509363603689' class=external>Codegreenie</a><br>Twitter <a href='https://twitter.com/codegreenie' class=external>@codegreenie</a>");
       });
 
 
