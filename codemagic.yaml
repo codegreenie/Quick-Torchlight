@@ -46,5 +46,5 @@ workflows:
                 - user_2@example.com
             notify:
               success: true     # To not receive a notification when a build succeeds
-              failure: false    # To not receive a notification when a build fails
+              failure: true    # To not receive a notification when a build fails
 
