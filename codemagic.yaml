@@ -42,7 +42,6 @@ workflows:
           UNSIGNED_APK_PATH=$(echo $UNSIGNED_UNALIGNED_APK_PATH | sed 's/-unsigned/-unsigned-aligned/')
           SIGNED_APK_PATH=$(echo $UNSIGNED_APK_PATH | sed 's/-unsigned-aligned//')
           zipalign -v -p 4 $UNSIGNED_UNALIGNED_APK_PATH $UNSIGNED_APK_PATH
-          apksigner sign --ks $FCI_KEYSTORE_PATH --ks-pass pass:$FCI_KEYSTORE_PASSWORD --ks-key-alias $FCI_KEY_ALIAS --key-pass pass:$FCI_KEYSTORE_PASSWORD --in $UNSIGNED_APK_PATH --out $SIGNED_APK_PATH
           rm -rf $UNSIGNED_UNALIGNED_APK_PATH
           rm -rf $UNSIGNED_APK_PATH
     artifacts:
