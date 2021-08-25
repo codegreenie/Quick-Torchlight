@@ -35,6 +35,16 @@ workflows:
           UNSIGNED_APK_PATH=$(find platforms/android/app/build/outputs -name "*.apk" | head -1)
           jarsigner -sigalg SHA1withRSA -digestalg SHA1 -keystore "${KEYSTORE_PATH}" -storepass "${KEYSTORE_PASSWORD}" -keypass "${KEY_ALIAS_PASSWORD}" "${UNSIGNED_APK_PATH}" "${KEY_ALIAS}"
           mv $UNSIGNED_APK_PATH $(echo $UNSIGNED_APK_PATH | sed 's/-unsigned//')
+       - name: Sign APK
+         script: |
+          echo $FCI_KEYSTORE | base64 --decode > $FCI_KEYSTORE_PATH
+          UNSIGNED_UNALIGNED_APK_PATH=$(find platforms/android/app/build/outputs -name "*.apk" | head -1)
+          UNSIGNED_APK_PATH=$(echo $UNSIGNED_UNALIGNED_APK_PATH | sed 's/-unsigned/-unsigned-aligned/')
+          SIGNED_APK_PATH=$(echo $UNSIGNED_APK_PATH | sed 's/-unsigned-aligned//')
+          zipalign -v -p 4 $UNSIGNED_UNALIGNED_APK_PATH $UNSIGNED_APK_PATH
+          apksigner sign --ks $FCI_KEYSTORE_PATH --ks-pass pass:$FCI_KEYSTORE_PASSWORD --ks-key-alias $FCI_KEY_ALIAS --key-pass pass:$FCI_KEYSTORE_PASSWORD --in $UNSIGNED_APK_PATH --out $SIGNED_APK_PATH
+          rm -rf $UNSIGNED_UNALIGNED_APK_PATH
+          rm -rf $UNSIGNED_APK_PATH
     artifacts:
       - platforms/android/app/build/outputs/**/*.apk
       - platforms/android/app/build/outputs/**/mapping.txt
