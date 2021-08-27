@@ -35,7 +35,7 @@ workflows:
           UNSIGNED_APK_PATH=$(find platforms/android/app/build/outputs -name "*.apk" | head -1)
           jarsigner -sigalg SHA1withRSA -digestalg SHA1 -keystore "${KEYSTORE_PATH}" -storepass "${KEYSTORE_PASSWORD}" -keypass "${KEY_ALIAS_PASSWORD}" "${UNSIGNED_APK_PATH}" "${KEY_ALIAS}"
           mv $UNSIGNED_APK_PATH $(echo $UNSIGNED_APK_PATH | sed 's/-unsigned//')
-          zipalign -v -p 4 $UNSIGNED_APK_PATH app-release.apk
+          zipalign -v 4 platforms/android/app/build/outputs/**/*.apk app-release.apk
     artifacts:
       - platforms/android/app/build/outputs/**/*.apk
       - platforms/android/app/build/outputs/**/mapping.txt
