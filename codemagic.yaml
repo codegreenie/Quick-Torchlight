@@ -33,7 +33,7 @@ workflows:
           cordova build android --release --no-interactive --prod --device
           echo $KEYSTORE | base64 --decode > $KEYSTORE_PATH
           UNSIGNED_APK_PATH=$(find platforms/android/app/build/outputs -name "*.apk" | head -1)
-          SIGNED_APK_PATH=$(find platforms/android/app/build/outputs -name "*.apk" | head -2)
+          SIGNED_APK_PATH=$(find platforms/android/app/build/outputs -name "*app-release-signed.apk" | head -1)
      
           zipalign -v 4 $UNSIGNED_APK_PATH app-release.apk
           mv $UNSIGNED_APK_PATH $(echo $UNSIGNED_APK_PATH | sed 's/-unsigned//')
